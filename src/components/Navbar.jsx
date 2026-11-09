@@ -31,9 +31,11 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled || open
-          ? "border-b border-white/10 bg-ink/70 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
+        open
+          ? "border-b border-white/10 bg-ink-2"
+          : scrolled
+            ? "border-b border-white/10 bg-ink/70 backdrop-blur-xl"
+            : "border-b border-transparent bg-transparent"
       }`}
     >
       <nav
@@ -91,7 +93,7 @@ export default function Navbar() {
         {open && (
           <motion.div
             id="mobile-menu"
-            className="fixed inset-x-0 bottom-0 top-[72px] flex flex-col justify-between bg-ink/95 px-6 pb-10 pt-8 backdrop-blur-xl md:hidden"
+            className="fixed inset-x-0 bottom-0 top-[72px] flex flex-col justify-between bg-gradient-to-b from-ink-2 to-ink px-6 pb-10 pt-8 md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
